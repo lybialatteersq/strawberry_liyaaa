@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry Café 🍓</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rose: #b75065;
+            --blush: #d87491;
+            --cream: #e1c0c6;
+            --lavender: #E8D5F5;
+            --text: #4A2C35;
+            --muted: #9B6F7A;
+            --white: #FFFFFF;
+            --border: #F2C5D0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 245, 247, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--rose);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 500;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        .search-wrap {
+            position: relative;
+        }
+
+        .search-wrap input {
+            border: 1.5px solid var(--border);
+            border-radius: 999px;
+            padding: .38rem 1rem .38rem 2rem;
+            font-size: .88rem;
+            background: var(--white);
+            color: var(--text);
+            outline: none;
+            width: 180px;
+            transition: border-color .2s;
+        }
+
+        .search-wrap input:focus {
+            border-color: var(--rose);
+        }
+
+        .search-wrap .icon {
+            position: absolute;
+            left: .6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: .88rem;
+        }
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://i.pinimg.com/736x/f0/d3/5e/f0d35e49bf19b66cafcf631d072f8393.jpg') center/cover no-repeat;
+            position: relative;
+            padding-top: 64px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg, rgba(255, 245, 247, 0.78) 0%, rgba(255, 245, 247, 0.4) 45%, rgba(255, 245, 247, 0) 75%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 8%;
+            max-width: 620px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--rose);
+            border-radius: 999px;
+            padding: .3rem 1rem;
+            font-size: .8rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            letter-spacing: .04em;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: .6rem;
+            text-shadow: 0 2px 18px rgba(255, 255, 255, .6);
+        }
+
+        .hero-content h1 em {
+            color: var(--rose);
+            font-style: normal;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #5b3640;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 12px rgba(255, 255, 255, .5);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .72rem 1.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .92rem;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--rose);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(247, 168, 184, .45);
+        }
+
+        .btn-primary:hover {
+            background: #ca7687;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: var(--white);
+            color: var(--text);
+            border: 2px solid var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--text);
+            color: var(--white);
+        }
+
+        .btn-full {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: .5rem;
+        }
+
+        #promo {
+            padding: 80px 8%;
+        }
+
+        .promo-inner {
+            background: linear-gradient(135deg, var(--blush), var(--lavender));
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            border: 1.5px solid var(--border);
+        }
+
+        .promo-eyebrow {
+            font-size: .8rem;
+            color: var(--rose);
+            font-weight: 700;
+            letter-spacing: .06em;
+        }
+
+        .promo-inner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin: .6rem 0 .5rem;
+        }
+
+        .promo-inner p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-cards {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .promo-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            min-width: 180px;
+            border: 1.5px solid var(--border);
+            flex: 1;
+            max-width: 240px;
+        }
+
+        .promo-card .tag {
+            font-size: .75rem;
+            color: var(--rose);
+            font-weight: 700;
+            letter-spacing: .06em;
+        }
+
+        .promo-card .disc {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .promo-card .desc {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .2rem;
+        }
+
+        #menu {
+            padding: 80px 8%;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: .4rem;
+        }
+
+        .section-head p {
+            color: var(--muted);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: .7rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: .42rem 1.2rem;
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            color: var(--muted);
+            font-size: .88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--rose);
+            color: var(--white);
+            border-color: var(--rose);
+        }
+
+        .range-wrap {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        .range-wrap input[type=range] {
+            accent-color: var(--rose);
+            width: 110px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1.5px solid var(--border);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(247, 168, 184, .25);
+        }
+
+        .product-img {
+            height: 190px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .prod-badge {
+            position: absolute;
+            top: .7rem;
+            left: .7rem;
+            background: var(--rose);
+            color: var(--white);
+            font-size: .7rem;
+            font-weight: 700;
+            padding: .2rem .6rem;
+            border-radius: 999px;
+        }
+
+        .product-info {
+            padding: 1rem 1.2rem 1.2rem;
+        }
+
+        .product-info .cat {
+            font-size: .72rem;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin: .2rem 0 .15rem;
+        }
+
+        .product-info .desc {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: .8rem;
+            line-height: 1.4;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .add-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--rose);
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+        }
+
+        .add-btn:hover {
+            background: #e28598;
+        }
+
+        .no-results {
+            color: var(--muted);
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        #about {
+            padding: 80px 8%;
+            background: linear-gradient(180deg, var(--cream), var(--blush));
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .about-img-wrap {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgb(247, 168, 184);
+        }
+
+        .about-img-wrap img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .about-chips {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+            margin-top: 1.2rem;
+        }
+
+        .chip {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 999px;
+            padding: .3rem .9rem;
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        footer {
+            background: var(--text);
+            color: var(--blush);
+            text-align: center;
+            padding: 2.5rem 8%;
+        }
+
+        footer a {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: .88rem;
+            margin: .35rem 0;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: .8rem;
+        }
+
+        .footer-contact {
+            margin-top: .7rem;
+        }
+
+        .footer-copy {
+            margin-top: 1rem;
+            font-size: .8rem;
+            opacity: .6;
+        }
+
+        #cart-bubble {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 900;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--rose);
+            color: var(--white);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(247, 168, 184, .55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .2s;
+        }
+
+        #cart-bubble:hover {
+            transform: scale(1.08);
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--text);
+            color: var(--white);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: .72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-bg {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(124, 54, 75, 0.45);
+            backdrop-filter: blur(4px);
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal-bg.open {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 28px 28px 0 0;
+            width: 100%;
+            max-width: 520px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            animation: slideUp .3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%)
+            }
+
+            to {
+                transform: translateY(0)
+            }
+        }
+
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        .modal-subhead {
+            margin: 1.2rem 0 .8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: var(--blush);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: .85rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: var(--blush);
+        }
+
+        .cart-item-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: .95rem;
+            font-weight: 600;
+        }
+
+        .cart-item-info span {
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        .cart-item-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: .3rem;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            font-size: .95rem;
+        }
+
+        .qty-ctrl {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .qty-ctrl button {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+        }
+
+        .qty-ctrl span {
+            font-size: .9rem;
+            font-weight: 600;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .cart-total {
+            display: none;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-total span {
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
+        .cart-total strong {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--muted);
+        }
+
+        .cart-empty .emoji {
+            font-size: 3rem;
+            margin-bottom: .5rem;
+        }
+
+        #delivery-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: .35rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: .65rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            font-size: .9rem;
+            color: var(--text);
+            outline: none;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            transition: border-color .2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--rose);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        #payment-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .pay-label {
+            font-size: .88rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            line-height: 1.55;
+        }
+
+        .pay-methods {
+            display: flex;
+            flex-direction: column;
+            gap: .7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pay-opt {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all .2s;
+            background: var(--white);
+        }
+
+        .pay-opt:hover {
+            border-color: var(--rose);
+            background: var(--blush);
+        }
+
+        .pay-opt.selected {
+            border-color: var(--rose);
+            background: var(--blush);
+        }
+
+        .pay-opt-icon {
+            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+
+        .pay-opt-info h4 {
+            font-size: .95rem;
+            font-weight: 600;
+        }
+
+        .pay-opt-info span {
+            font-size: .78rem;
+            color: var(--muted);
+        }
+
+        .pay-radio {
+            margin-left: auto;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--rose);
+        }
+
+        #pay-detail {
+            display: none;
+            background: var(--blush);
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            font-size: .88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        #success-section {
+            display: none;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        .success-anim {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: pop .4s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0)
+            }
+
+            80% {
+                transform: scale(1.15)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        #success-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+        }
+
+        #success-section p {
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+
+        @media(max-width:768px) {
+            nav {
+                padding: 0 4%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 5%;
+            }
+
+            .about-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img-wrap img {
+                height: 220px;
+            }
+
+            #promo,
+            #menu,
+            #about {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="nav-logo" href="#home">🍓 Strawberry<span>Café</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#promo">Promo</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+        </ul>
+        <div class="search-wrap">
+            <span class="icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Cari produk...">
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">✨ Dibuat dengan cinta setiap hari</span>
+            <h1>Soft Dessert &<br><em>Sweet Drink's</em></h1>
+            <p>Nikmati kesegaran stroberi dalam setiap gigitan dan tegukan. Dibuat dari bahan pilihan, untuk kamu yang
+                menyukai hal-hal yang manis.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn btn-primary">Belanja Sekarang 🛍️</a>
+                <a href="#promo" class="btn btn-outline">Lihat Promo 🎁</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="promo">
+        <div class="promo-inner">
+            <span class="promo-eyebrow">🎀 PROMO SPESIAL</span>
+            <h2>Hemat Lebih Banyak,<br>Nikmati Lebih Banyak</h2>
+            <p>Promo terbatas — jangan sampai ketinggalan ya!</p>
+            <div class="promo-cards">
+                <div class="promo-card">
+                    <div class="tag">🍓 NEW MEMBER</div>
+                    <div class="disc">10%</div>
+                    <div class="desc">Diskon untuk pelanggan baru. Yuk coba sekarang!</div>
+                </div>
+                <div class="promo-card">
+                    <div class="tag">☀️ HAPPY HOUR</div>
+                    <div class="disc">Beli 2</div>
+                    <div class="desc">Gratis 1 minuman pilihan untuk setiap pembelian 2 dessert.</div>
+                </div>
+                <div class="promo-card">
+                    <div class="tag">📦 WEEKEND</div>
+                    <div class="disc">Free</div>
+                    <div class="desc">Ongkos kirim gratis setiap Sabtu & Minggu. Yay!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="section-head">
+            <h2>Menu Kami 🍓</h2>
+            <p>Pilih favoritmu — semuanya enak, semua dari stroberi segar</p>
+        </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-cat="semua">Semua</button>
+            <button class="filter-btn" data-cat="drink">🥤 Drink</button>
+            <button class="filter-btn" data-cat="dessert">🍰 Dessert</button>
+            <div class="range-wrap">
+                <span>Harga maks:</span>
+                <input type="range" id="priceRange" min="15000" max="35000" step="1000" value="35000">
+                <span id="rangeLabel">Rp 35.000</span>
+            </div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section id="about">
+        <div class="about-inner">
+            <div class="about-img-wrap">
+                <img src="https://i.pinimg.com/736x/fc/00/a3/fc00a3aabd5eb9dd0ee51fbea7d0d324.jpg"
+                    alt="Strawberry Café">
+            </div>
+            <div class="about-text">
+                <h2>Tentang<br>Strawberry Café 🍓</h2>
+                <p>Kami adalah café kecil yang percaya bahwa makanan enak bisa juga jadi penghibur hati. Semua produk
+                    kami dibuat dengan stroberi segar pilihan, tanpa pengawet berlebihan.</p>
+                <p>Dari minuman hingga dessert — setiap menu hadir dengan penuh kasih sayang untuk menemani hari-hari
+                    kamu yang manis.</p>
+                <div class="about-chips">
+                    <span class="chip">🍓 Bahan Segar</span>
+                    <span class="chip">🎀 Homemade</span>
+                    <span class="chip">💌 Penuh Cinta</span>
+                    <span class="chip">🚚 Pesan Antar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-logo">🍓 Strawberry Café</p>
+        <p>Hubungi kami kapan saja — dengan senang hati kami bantu!</p>
+        <p class="footer-contact">
+           <p>📱 <a href="https://wa.me/6289607039881">WhatsApp</a></p>
+            <p>📧 <a href="mailto:lybianamuftifa@gmail.com">Email</a></p>
+        </p>
+        <p class="footer-copy">© 2025 Strawberry Café · All rights reserved</p>
+    </footer>
+
+    <button id="cart-bubble">
+        🛒
+        <span id="cart-count">0</span>
+    </button>
+
+    <div class="modal-bg" id="cartModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h2>🛒 Keranjang Belanja</h2>
+                <button class="close-btn" id="closeCartBtn">✕</button>
+            </div>
+
+            <div id="cartItems"></div>
+            <div id="cartTotal" class="cart-total">
+                <span>Total Pembayaran</span>
+                <strong id="totalPrice">Rp 0</strong>
+            </div>
+
+            <div id="delivery-section">
+                <div class="modal-subhead">📦 Detail Pengiriman</div>
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="f-name" placeholder="Masukkan nama lengkap kamu">
+                </div>
+                <div class="form-group">
+                    <label>Alamat Email</label>
+                    <input type="email" id="f-email" placeholder="contoh@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Nomor HP / WhatsApp</label>
+                    <input type="tel" id="f-phone" placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Alamat Rumah Lengkap</label>
+                    <textarea id="f-address"
+                        placeholder="Jalan, nomor, RT/RW, kelurahan, kecamatan, kota, kode pos..."></textarea>
+                </div>
+                <button class="btn btn-primary btn-full" id="confirmDeliveryBtn">
+                    Konfirmasi & Lanjut Bayar ✅
+                </button>
+            </div>
+
+            <div id="payment-section">
+                <div class="modal-subhead">💳 Metode Pembayaran</div>
+                <p class="pay-label">🔒 Silakan pilih metode pembayaran formal untuk menyelesaikan pesanan Anda.
+                    Transaksi Anda dilindungi oleh <strong>Secure Payment Gateway</strong>.</p>
+                <div class="pay-methods">
+                    <div class="pay-opt" data-pay="dana">
+                        <div class="pay-opt-icon">💙</div>
+                        <div class="pay-opt-info">
+                            <h4>E-Wallet DANA</h4><span>Transfer instan, aman & cepat</span>
+                        </div>
+                        <input type="radio" class="pay-radio" name="pay" value="dana">
+                    </div>
+                    <div class="pay-opt" data-pay="shopeepay">
+                        <div class="pay-opt-icon">🧡</div>
+                        <div class="pay-opt-info">
+                            <h4>E-Wallet ShopeePay</h4><span>Bayar mudah via Shopee</span>
+                        </div>
+                        <input type="radio" class="pay-radio" name="pay" value="shopeepay">
+                    </div>
+                    <div class="pay-opt" data-pay="bni">
+                        <div class="pay-opt-icon">🏦</div>
+                        <div class="pay-opt-info">
+                            <h4>Transfer Virtual Account BNI</h4><span>Internet/mobile banking BNI</span>
+                        </div>
+                        <input type="radio" class="pay-radio" name="pay" value="bni">
+                    </div>
+                </div>
+                <div id="pay-detail"></div>
+                <button class="btn btn-primary btn-full" id="bayarBtn">
+                    Bayar Sekarang 🔒
+                </button>
+            </div>
+
+            <div id="success-section">
+                <div class="success-anim">🎉</div>
+                <h3>Pembayaran Berhasil!</h3>
+                <p id="success-msg"></p>
+                <button class="btn btn-primary" id="resetBtn" style="margin-top:1.5rem;">Kembali Belanja 🍓</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: 'Strawberry Dream Smoothies', cat: 'drink', price: 18000, img: 'https://i.pinimg.com/736x/c9/79/42/c97942d08d2c7ba24e0015ba68c691f0.jpg', desc: 'Smoothie stroberi segar blended creamy, cocok buat mood booster!' },
+            { id: 2, name: 'Strawberry Matcha Milk', cat: 'drink', price: 22000, img: 'https://i.pinimg.com/webp/736x/a5/7b/ad/a57bad295cdd48812e92cd6053519850.webp', desc: 'Matcha lembut bertemu stroberi manis — kombinasi estetik & enak.' },
+            { id: 3, name: 'Strawberry Latte', cat: 'drink', price: 25000, img: 'https://i.pinimg.com/1200x/77/01/fd/7701fdb965562b6047a339456e7d133d.jpg', desc: 'Latte sutra dengan strawberry purée di bawah foam susu hangat.' },
+            { id: 4, name: 'Strawberry Cheesecake', cat: 'dessert', price: 32000, img: 'https://i.pinimg.com/vwebp/1200x/de/a0/1a/dea01a87b4e0389b06ea43a19e6af30c.webp', desc: 'Cheesecake lembut, graham cracker crust, topping stroberi segar.' },
+            { id: 5, name: 'Strawberry Choco Mint', cat: 'dessert', price: 28000, img: 'https://i.pinimg.com/736x/e8/4c/5d/e84c5dd05d064bc38904a0ec4f3ee1df.jpg', desc: 'Coklat gelap, mint segar, dan stroberi — trio rasa yang sempurna.' },
+            { id: 6, name: 'Strawberry Moci', cat: 'dessert', price: 20000, img: 'https://i.pinimg.com/736x/4a/c2/a0/4ac2a0985dea1e2ace8517e43b700c1c.jpg', desc: 'Mochi kenyal isi filling stroberi & krim, satu gigitan bliss!' },
+        ];
+
+        let cart = {};
+        let activeCategory = 'semua';
+        let maxPrice = 35000;
+        let selectedPay = null;
+
+        function rupiah(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const q = document.getElementById('searchInput').value.toLowerCase();
+
+            let list = products.filter(p => {
+                const catOk = activeCategory === 'semua' || p.cat === activeCategory;
+                const priceOk = p.price <= maxPrice;
+                const searchOk = p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q);
+                return catOk && priceOk && searchOk;
+            });
+
+            if (!list.length) {
+                grid.innerHTML = '<p class="no-results">Produk tidak ditemukan 😔</p>';
+                return;
+            }
+
+            grid.innerHTML = list.map(p => `
+    <div class="product-card">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}">
+        <span class="prod-badge">${p.cat === 'drink' ? 'Drink' : 'Dessert'}</span>
+      </div>
+      <div class="product-info">
+        <div class="cat">${p.cat}</div>
+        <h3>${p.name}</h3>
+        <div class="desc">${p.desc}</div>
+        <div class="product-footer">
+          <span class="price">${rupiah(p.price)}</span>
+          <button class="add-btn" data-id="${p.id}">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+        }
+
+        function setCategory(cat, btn) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderProducts();
+        }
+
+        function updateRange(v) {
+            maxPrice = parseInt(v);
+            document.getElementById('rangeLabel').textContent = rupiah(maxPrice);
+            renderProducts();
+        }
+
+        function addToCart(id) {
+            cart[id] = (cart[id] || 0) + 1;
+            updateBubble();
+        }
+
+        function updateBubble() {
+            const total = Object.values(cart).reduce((a, b) => a + b, 0);
+            document.getElementById('cart-count').textContent = total;
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').classList.add('open');
+            renderCart();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('open');
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            const ids = Object.keys(cart).filter(id => cart[id] > 0);
+            const deliveryEl = document.getElementById('delivery-section');
+            const paymentEl = document.getElementById('payment-section');
+
+            if (!ids.length) {
+                container.innerHTML = `<div class="cart-empty"><div class="emoji">🛒</div><p>Keranjangmu masih kosong.<br>Yuk, pilih produk favoritmu!</p></div>`;
+                document.getElementById('cartTotal').style.display = 'none';
+                deliveryEl.style.display = 'none';
+                paymentEl.style.display = 'none';
+                document.getElementById('success-section').style.display = 'none';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = ids.map(id => {
+                const p = products.find(x => x.id == id);
+                const sub = p.price * cart[id];
+                total += sub;
+                return `
+    <div class="cart-item">
+      <div class="cart-item-icon"><img src="${p.img}" alt="${p.name}"></div>
+      <div class="cart-item-info">
+        <h4>${p.name}</h4>
+        <span>${rupiah(p.price)} / item</span>
+      </div>
+      <div class="cart-item-right">
+        <span class="cart-item-price">${rupiah(sub)}</span>
+        <div class="qty-ctrl">
+          <button data-action="dec" data-id="${id}">−</button>
+          <span>${cart[id]}</span>
+          <button data-action="inc" data-id="${id}">+</button>
+        </div>
+      </div>
+    </div>`;
+            }).join('');
+
+            document.getElementById('cartTotal').style.display = 'flex';
+            document.getElementById('totalPrice').textContent = rupiah(total);
+            deliveryEl.style.display = 'block';
+        }
+
+        function changeQty(id, delta) {
+            cart[id] = Math.max(0, (cart[id] || 0) + delta);
+            if (cart[id] === 0) delete cart[id];
+            updateBubble();
+            renderCart();
+        }
+
+        function confirmDelivery() {
+            const name = document.getElementById('f-name').value.trim();
+            const email = document.getElementById('f-email').value.trim();
+            const phone = document.getElementById('f-phone').value.trim();
+            const address = document.getElementById('f-address').value.trim();
+
+            if (!name || !email || !phone || !address) {
+                alert('Mohon lengkapi semua detail pengiriman ya! 💌');
+                return;
+            }
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRe.test(email)) {
+                alert('Format email tidak valid 📧');
+                return;
+            }
+
+            const paymentEl = document.getElementById('payment-section');
+            paymentEl.style.display = 'block';
+            setTimeout(() => paymentEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        }
+
+        function selectPay(el, method) {
+            document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected');
+            el.querySelector('.pay-radio').checked = true;
+            selectedPay = method;
+
+            const detail = document.getElementById('pay-detail');
+            detail.style.display = 'block';
+            if (method === 'dana') {
+                detail.innerHTML = '💙 <strong>DANA</strong> — Masukkan nomor HP yang terdaftar di DANA: <strong>089607039881</strong>. Nominal sesuai total belanja.';
+            } else if (method === 'shopeepay') {
+                detail.innerHTML = '🧡 <strong>ShopeePay</strong> — Scan QR atau kirim ke akun ShopeePay terdaftar. Konfirmasi otomatis dalam 1–3 menit.';
+            } else {
+                detail.innerHTML = '🏦 <strong>BNI Virtual Account</strong> — Nomor VA Anda: <strong>8808-XXXX-XXXX</strong> (dihasilkan saat konfirmasi). Bayar via mobile/internet banking BNI.';
+            }
+        }
+
+        function bayarSekarang() {
+            if (!selectedPay) {
+                alert('Pilih metode pembayaran dulu ya! 💳');
+                return;
+            }
+            const name = document.getElementById('f-name').value.trim();
+            const payNames = { dana: 'DANA', shopeepay: 'ShopeePay', bni: 'Transfer VA BNI' };
+
+            document.getElementById('delivery-section').style.display = 'none';
+            document.getElementById('payment-section').style.display = 'none';
+            document.getElementById('cartItems').innerHTML = '';
+            document.getElementById('cartTotal').style.display = 'none';
+            document.getElementById('success-section').style.display = 'block';
+            document.getElementById('success-msg').innerHTML = `
+    Terima kasih <strong>${name}</strong>! 🍓<br>
+    Pesananmu dibayar via <strong>${payNames[selectedPay]}</strong> berhasil dikonfirmasi.<br>
+    Kami akan segera memproses & mengirimkan pesananmu. Cek WhatsApp untuk update ya!
+  `;
+        }
+
+        function resetAll() {
+            cart = {};
+            selectedPay = null;
+            updateBubble();
+            ['f-name', 'f-email', 'f-phone', 'f-address'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            document.getElementById('success-section').style.display = 'none';
+            document.getElementById('pay-detail').style.display = 'none';
+            document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('selected'));
+            document.querySelectorAll('.pay-radio').forEach(r => r.checked = false);
+            closeCart();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+
+            document.getElementById('searchInput').addEventListener('input', renderProducts);
+            document.getElementById('priceRange').addEventListener('input', e => updateRange(e.target.value));
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => setCategory(btn.dataset.cat, btn));
+            });
+
+            document.getElementById('productsGrid').addEventListener('click', e => {
+                const btn = e.target.closest('.add-btn');
+                if (btn) addToCart(parseInt(btn.dataset.id));
+            });
+
+            document.getElementById('cart-bubble').addEventListener('click', openCart);
+            document.getElementById('closeCartBtn').addEventListener('click', closeCart);
+
+            document.getElementById('cartItems').addEventListener('click', e => {
+                const btn = e.target.closest('button[data-action]');
+                if (!btn) return;
+                const id = btn.dataset.id;
+                const delta = btn.dataset.action === 'inc' ? 1 : -1;
+                changeQty(id, delta);
+            });
+
+            document.getElementById('confirmDeliveryBtn').addEventListener('click', confirmDelivery);
+
+            document.querySelectorAll('.pay-opt').forEach(opt => {
+                opt.addEventListener('click', () => selectPay(opt, opt.dataset.pay));
+            });
+
+            document.getElementById('bayarBtn').addEventListener('click', bayarSekarang);
+            document.getElementById('resetBtn').addEventListener('click', resetAll);
+
+            document.getElementById('cartModal').addEventListener('click', function (e) {
+                if (e.target === this) closeCart();
+            });
+        });
+    </script>
+</body>
+
+</html>
