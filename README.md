@@ -1,109 +1,242 @@
- 🍓Strawberry Café
-"Membangun Website E-Commerce Fungsional dengan Integrasi Strategi Bisnis Modern"
+🍓 Strawberry Café — Website E-Commerce
+"Soft dessert, sweet drink's."
+Website e-commerce single-page untuk brand minuman dan dessert stroberi Strawberry Café, dibangun dengan HTML5, CSS3, dan Vanilla JavaScript murni — tanpa framework, tanpa backend, tanpa proses build. Langsung buka di browser, langsung jalan.
 
-🏪 Nama Bisnis, Deskripsi, dan Value Proposition
-Strawberry Café adalah café online yang menjual minuman dan dessert berbahan dasar stroberi segar, dibuat secara homemade tanpa pengawet berlebihan.
-Value proposition utama Strawberry Café adalah menghadirkan produk yang tidak hanya enak, tetapi juga estetik dan terjangkau. Dengan tampilan visual pastel yang menarik dan proses pembelian yang mudah, pelanggan dapat memesan langsung dari website mulai dari memilih produk, mengisi detail pengiriman, hingga melakukan pembayaran — semua dalam satu halaman tanpa perlu berpindah aplikasi.
+📋 Daftar Isi
+Dokumentasi Bisnis
 
-🎯 Target Market & Segmentasi Pelanggan
+Profil Brand
+Daftar Produk & Harga
+Metode Pembayaran
+Informasi Kontak
+Alur Pemesanan Pelanggan
+Rencana Pengembangan Bisnis
 
-Demografis : Remaja hingga dewasa muda usia 15–30 tahun, mayoritas perempuan, daya beli menengah
-Psikografis : Pecinta makanan dan minuman manis, menyukai estetika visual, aktif di media sosial, mudah tertarik produk yang instagramable
-Geografis : Area perkotaan yang terjangkau layanan pengiriman
+Dokumentasi Teknis
 
-
-📊 Analisis Pasar Singkat & Kompetitor
-Tren minuman dan dessert berbasis buah segar, khususnya stroberi, terus meningkat karena dianggap menyegarkan, sehat, dan fotogenik. Kompetitor utama adalah café kekinian berbasis buah seperti brand bubble tea dan fruit tea lokal.
-Keunggulan Strawberry Café dibanding kompetitor adalah fokus tunggal pada stroberi sebagai bahan utama di seluruh produk, sehingga identitas brand lebih kuat, mudah diingat, dan lebih mudah membangun loyalitas pelanggan dibanding kompetitor yang menjual terlalu banyak variasi rasa.
-
-🛍️ Strategi Manajemen Produk & Katalog
-Produk dikategorikan menjadi 2 kategori agar navigasi mudah dan tidak membingungkan pelanggan.
-🥤 Drink
-
-Strawberry Dream Smoothies — Rp 18.000
-Strawberry Matcha Milk — Rp 22.000
-Strawberry Latte — Rp 25.000
-
-🍰 Dessert
-
-Strawberry Cheesecake — Rp 32.000
-Strawberry Choco Mint — Rp 28.000
-Strawberry Moci — Rp 20.000
-
-Setiap produk ditampilkan dengan foto asli, deskripsi singkat, kategori, dan harga yang transparan. Rentang harga Rp 18.000–32.000 disesuaikan dengan daya beli target market mahasiswa dan remaja.
-
-💰 Model Bisnis & Revenue Stream
-Strawberry Café menggunakan model Direct-to-Consumer (D2C) — pelanggan memesan langsung melalui website tanpa perantara pihak ketiga.
-Revenue stream utama berasal dari penjualan produk per unit (per cup atau per porsi). Potensi revenue tambahan berasal dari biaya pengiriman di hari kerja, sementara di akhir pekan diterapkan free shipping sebagai bagian dari strategi promosi untuk mendorong volume penjualan.
-
-🎁 Strategi Harga, Promosi, dan Diskon
-
-🍓 New Member : Diskon 10% untuk pelanggan yang pertama kali melakukan pembelian
-☀️ Happy Hour : Beli 2 dessert gratis 1 minuman pilihan
-📦 Weekend Free Shipping : Gratis ongkos kirim setiap Sabtu dan Minggu
-
-Strategi ini dirancang untuk mendorong percobaan produk oleh pelanggan baru sekaligus meningkatkan frekuensi pembelian berulang dari pelanggan lama.
-
-💳 Proses Checkout & Simulasi Payment Gateway
-Proses checkout dirancang dalam 3 tahap yang muncul secara berurutan agar pelanggan tidak bingung:
-Tahap 1 — Keranjang Belanja
-Menampilkan daftar produk yang dipilih, jumlah kuantitas setiap item, dan total harga yang dihitung otomatis secara real-time.
-Tahap 2 — Detail Pengiriman
-Pelanggan mengisi form yang terdiri dari nama lengkap, alamat email resmi, nomor HP/WhatsApp, dan alamat rumah lengkap. Semua field wajib diisi dan format email divalidasi sebelum bisa lanjut ke tahap berikutnya.
-Tahap 3 — Metode Pembayaran
-Pelanggan memilih salah satu metode pembayaran yang tersedia:
-
-E-Wallet DANA
-E-Wallet ShopeePay
-Transfer Virtual Account BNI
-
-Setelah memilih metode pembayaran dan menekan tombol "Bayar Sekarang", sistem menampilkan konfirmasi "Pembayaran Berhasil".
-
-Catatan : Payment gateway ini merupakan simulasi/dummy untuk keperluan akademik dan tidak terhubung ke sistem pembayaran nyata seperti Midtrans, Xendit, atau PayPal.
-
-
-🔒 Rencana SEO, Keamanan, dan Pemeliharaan
-SEO
-Menggunakan tag title dan meta description yang deskriptif, struktur heading yang semantik (H1, H2, H3), serta alt text pada setiap gambar produk agar mudah diindeks oleh mesin pencari.
-Keamanan
-Validasi input dilakukan di sisi client untuk mencegah pengiriman data kosong atau format yang salah. Pada implementasi nyata, perlu ditambahkan validasi server-side, enkripsi data, dan protokol HTTPS/SSL untuk melindungi data pelanggan.
-Pemeliharaan
-Kode dipisah secara modular menjadi tiga file (HTML, CSS, JS) agar setiap bagian mudah diperbarui tanpa mengganggu bagian lain. Data produk disimpan dalam satu array terpusat di script.js sehingga penambahan atau perubahan produk dapat dilakukan dengan cepat.
-
-📈 Rencana Penggunaan Data Analytics untuk Pengambilan Keputusan
-Website direncanakan terintegrasi dengan Google Analytics (dummy) untuk memantau metrik berikut:
-
-Bounce Rate : Mengukur persentase pengunjung yang langsung meninggalkan halaman tanpa interaksi. Digunakan untuk mengevaluasi efektivitas hero section dan copywriting halaman utama.
-Conversion Rate : Mengukur persentase pengunjung yang berhasil menyelesaikan transaksi. Digunakan untuk mengevaluasi efektivitas alur checkout dari keranjang hingga pembayaran.
-Produk Terpopuler : Melacak produk yang paling sering ditambahkan ke keranjang. Digunakan untuk menentukan strategi stok dan produk yang diprioritaskan dalam promosi.
-Sumber Traffic : Mengetahui dari mana pengunjung berasal (organic search, media sosial, direct). Digunakan untuk mengalokasikan anggaran marketing secara lebih efektif.
-
-Seluruh keputusan bisnis ke depan — seperti penambahan menu baru, penyesuaian harga, atau intensitas promosi — akan didasarkan pada data analytics, bukan hanya asumsi.
-
-🛠️ Technical & Deployment
-Tech Stack
-
-HTML5 — struktur semantik halaman
-CSS3 — Flexbox, CSS Grid, CSS Variables untuk konsistensi warna pastel
-JavaScript Vanilla ES6+ — seluruh interaktivitas tanpa framework eksternal
-
+Stack Teknologi
 Struktur File
-
-index.html — struktur halaman utama
-style.css — seluruh styling dan responsive design
-script.js — seluruh logika interaktif (filter, search, keranjang, validasi, pembayaran)
-
-Fitur JavaScript yang Diimplementasikan
-
-Filter kategori produk (Semua / Drink / Dessert) secara real-time
-Pencarian produk berdasarkan nama secara real-time
-Slider range harga untuk memfilter produk berdasarkan harga maksimum
-Keranjang belanja dengan tambah/kurang kuantitas dan total harga otomatis
-Validasi form pengiriman (field kosong dan format email)
-Smooth scrolling antar section
-
+Arsitektur Halaman
+Logika JavaScript
+Sistem CSS & Tema Warna
 Cara Menjalankan
+Cara Deploy ke GitHub Pages
+Panduan Kustomisasi
+Status & Batasan
 
-Download file index.html, style.css, dan script.js ke dalam satu folder yang sama
-Buka index.html di browser atau gunakan Live Server di VS Code
-Tidak diperlukan instalasi apapun karena menggunakan murni HTML, CSS, dan JavaScript
+
+🏢 Dokumentasi Bisnis
+1.1 Profil Brand
+Nama BrandStrawberry CaféTagline"Soft dessert, sweet drink's."Jenis UsahaMinuman dan dessert berbahan dasar stroberi segarTarget PasarRemaja dan dewasa muda usia 15–30 tahun, pecinta makanan manis dan estetikKeunggulanSemua produk berbasis stroberi segar pilihan, dibuat homemade tanpa pengawet berlebihanJam OperasionalSetiap hari, 08.00 – 21.00
+
+1.2 Daftar Produk & Harga
+NoNama ProdukDeskripsiHarga1Strawberry Dream SmoothiesSmoothie stroberi segar blended creamy, cocok buat mood boosterRp 18.0002Strawberry Matcha MilkMatcha lembut bertemu stroberi manis, kombinasi estetik dan enakRp 22.0003Strawberry LatteLatte sutra dengan strawberry purée di bawah foam susu hangatRp 25.0004Strawberry CheesecakeCheesecake lembut, graham cracker crust, topping stroberi segarRp 32.0005Strawberry Choco MintCoklat gelap, mint segar, dan stroberi, trio rasa yang sempurnaRp 28.0006Strawberry MociMochi kenyal isi filling stroberi dan krim, satu gigitan blissRp 20.000
+💡 Harga dapat diubah langsung di array products pada file script.js.
+Biaya Pengiriman: Gratis ongkos kirim setiap Sabtu dan Minggu. Hari kerja dikenakan biaya sesuai jarak.
+
+1.3 Metode Pembayaran
+MetodeKeterangan💙 E-Wallet DANATransfer instan ke nomor DANA terdaftar🧡 E-Wallet ShopeePayScan QR atau kirim ke akun ShopeePay🏦 Transfer Virtual Account BNIBayar via internet banking atau mobile banking BNI
+⚠️ Catatan: Pembayaran saat ini adalah simulasi front-end. Belum terhubung ke payment gateway sungguhan.
+
+1.4 Informasi Kontak
+KanalDetail📞 Telepon / WhatsApp089607039881✉️ Emaillybianamuftifa@gmail.com🕐 Jam BukaSetiap hari, 08.00 – 21.00
+
+1.5 Alur Pemesanan Pelanggan
+┌─────────────────────────────────────────────────────────┐
+│                   CUSTOMER JOURNEY                       │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  1. Buka website → lihat Hero Section (Home)             │
+│          ↓                                               │
+│  2. Scroll / klik "Belanja Sekarang" → lihat 6 produk    │
+│          ↓                                               │
+│  3. Filter kategori / cari produk → klik tombol "+"      │
+│          ↓                                               │
+│  4. Buka Keranjang → cek item, ubah qty jika perlu       │
+│          ↓                                               │
+│  5. Isi form pengiriman → Nama, Email, HP, Alamat        │
+│          ↓                                               │
+│  6. Klik "Konfirmasi & Lanjut Bayar" → pilih metode      │
+│          ↓                                               │
+│  7. Klik "Bayar Sekarang" → muncul konfirmasi sukses     │
+│          ↓                                               │
+│  8. Keranjang otomatis kosong → siap order berikutnya    │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+
+1.6 Rencana Pengembangan Bisnis
+
+ Integrasi payment gateway resmi (Midtrans / Xendit)
+ Notifikasi otomatis WhatsApp/email ke pemilik saat order masuk
+ Sistem login & riwayat pesanan pelanggan
+ Dashboard admin: kelola menu, harga, stok
+ Ongkos kirim dinamis berdasarkan lokasi
+ Program loyalitas / poin reward pelanggan
+ Fitur ulasan & rating produk
+ Integrasi marketplace (Tokopedia, Shopee)
+
+
+🛠 Dokumentasi Teknis
+2.1 Stack Teknologi
+KomponenTeknologiKeteranganStrukturHTML5Semantik, aksesibelStylingCSS3 murniCustom properties, Grid, FlexboxInteraktivitasVanilla JavaScriptTanpa library/frameworkFontGoogle FontsPlayfair Display + DM SansFoto ProdukURL UnsplashFoto langsung dari link eksternalDependensiGoogle Fonts CDNSatu-satunya dependensi eksternalBuild tool❌ Tidak adaTidak perlu npm, webpack, dllBackend❌ Tidak adaMurni front-end statis
+
+2.2 Struktur File
+strawberry-cafe/
+│
+├── index.html        ← Struktur halaman utama
+├── style.css         ← Seluruh styling dan responsive design
+├── script.js         ← Seluruh logika interaktif
+└── README.md         ← Dokumentasi ini
+
+2.3 Arsitektur Halaman
+index.html
+│
+├── <nav>                 Navigasi fixed (logo + menu link + search bar)
+│
+├── <section #home>       Hero: judul, deskripsi brand, tombol CTA
+├── <section #promo>      Kartu promo: New Member, Happy Hour, Weekend
+├── <section #menu>       Grid 6 kartu produk dengan foto, harga, tombol +
+├── <section #about>      Cerita brand + chips keunggulan
+│
+├── <footer>              Kontak yang bisa diklik + copyright
+│
+├── #cart-bubble          Tombol keranjang pojok kanan bawah
+│
+└── #cartModal            Modal keranjang belanja
+    ├── Cart Items         Daftar produk + qty control
+    ├── Cart Total         Total harga otomatis
+    ├── #delivery-section  Form data pengiriman
+    ├── #payment-section   Pilih metode pembayaran
+    └── #success-section   Konfirmasi pembayaran berhasil
+
+2.4 Logika JavaScript
+Data Produk
+Semua data produk disimpan dalam satu array products di script.js:
+javascriptconst products = [
+  {
+    id: 1,
+    name: "Strawberry Dream Smoothies",
+    cat: "drink",
+    price: 18000,
+    img: "https://images.unsplash.com/...",
+    desc: "Smoothie stroberi segar blended creamy."
+  },
+  // ...
+];
+Array ini adalah single source of truth — kartu menu, isi keranjang, dan total harga semuanya dirender dari array ini.
+State Keranjang
+javascriptlet cart = {};
+// Contoh isi: { 1: 2, 3: 1 }
+// artinya: produk id=1 qty 2, produk id=3 qty 1
+FungsiTugasnyaaddToCart(id)Tambah produk ke keranjang, update bubble countchangeQty(id, delta)Tambah/kurangi qty; hapus otomatis jika qty ≤ 0renderCart()Re-render isi modal setiap kali state berubahupdateBubble()Update angka di tombol keranjang pojok bawahrupiah(n)Format angka ke format Rupiah
+Alur Checkout
+openCart()          → buka modal keranjang
+renderCart()        → tampilkan item + form pengiriman
+confirmDelivery()   → validasi form, tampilkan section pembayaran
+selectPay()         → pilih metode, tampilkan instruksi pembayaran
+bayarSekarang()     → validasi metode, tampilkan sukses
+resetAll()          → reset cart, form, dan tutup modal
+Validasi
+
+Form pengiriman: Nama, Email, HP, dan Alamat wajib diisi
+Format email divalidasi dengan regular expression
+Pembayaran: wajib pilih salah satu metode sebelum bisa bayar
+
+
+2.5 Sistem CSS & Tema Warna
+Semua warna menggunakan CSS Custom Properties di :root agar mudah diganti:
+css:root {
+  --rose:     #F7A8B8;   /* Pink rose — warna utama */
+  --blush:    #FDDDE6;   /* Pink blush — latar section */
+  --cream:    #FFF5F7;   /* Krem pink — latar halaman */
+  --lavender: #E8D5F5;   /* Lavender — aksen promo */
+  --text:     #4A2C35;   /* Coklat tua — teks utama */
+  --muted:    #9B6F7A;   /* Mauve — teks sekunder */
+  --white:    #FFFFFF;   /* Putih — latar kartu */
+  --border:   #F2C5D0;   /* Pink border — garis pembatas */
+}
+Tipografi:
+
+Playfair Display (serif) → heading & judul: kesan elegan dan feminin
+DM Sans (sans-serif) → body text: bersih dan mudah dibaca
+
+Layout:
+
+CSS Grid untuk menu produk (auto-fill minmax 240px)
+Flexbox untuk navigasi, kartu, dan modal
+Breakpoint utama: 768px (tablet/mobile)
+
+Animasi:
+
+Modal keranjang: animation: slideUp 0.3s ease
+Hover kartu produk: transform: translateY(-4px) + box-shadow
+Semua transisi murni CSS, tanpa library animasi
+
+
+🚀 Cara Menjalankan
+Di Komputer Lokal
+Cara 1 — Langsung buka (paling simpel):
+Double-click file index.html → terbuka di browser
+Cara 2 — Pakai Live Server di VS Code (direkomendasikan):
+1. Install extension Live Server di VS Code
+2. Klik kanan index.html → Open with Live Server
+3. Website auto-refresh setiap kali kamu edit & save ✅
+Tidak perlu npm install, node, atau setup apapun.
+
+🌐 Cara Deploy ke GitHub Pages
+1. Buat akun GitHub → github.com
+
+2. Klik "New repository"
+   - Nama repo: strawberry-cafe
+   - Visibility: Public
+   - Klik "Create repository"
+
+3. Upload file:
+   - Klik "uploading an existing file"
+   - Drag & drop: index.html, style.css, script.js
+   - Klik "Commit changes"
+
+4. Aktifkan GitHub Pages:
+   - Settings → Pages (menu kiri)
+   - Source: Deploy from a branch
+   - Branch: main → / (root)
+   - Klik Save
+
+5. Tunggu 1-2 menit, lalu website live di:
+   https://usernamekamu.github.io/strawberry-cafe
+
+✏️ Panduan Kustomisasi
+Ubah Nama / Harga Produk
+Edit array products di dalam script.js:
+javascript{ id:1, name:"Nama Produk Baru", cat:"drink", price:20000,
+  img:"https://...", desc:"Deskripsi produk." }
+Tambah Produk Baru
+Tambah objek baru di array products di script.js, sesuaikan kategori dengan "drink" atau "dessert".
+Ubah Warna Tema
+Edit nilai hex di :root pada style.css:
+css--rose: #F7A8B8; /* ganti warna utama di sini */
+Ubah Foto Background Hero
+Cari di style.css:
+css#home {
+  background: url('link-foto-baru') center/cover no-repeat;
+}
+Ubah Foto Produk
+Ganti URL foto di array products pada script.js dengan URL foto baru.
+Ubah Kontak
+Cari di index.html bagian <footer> dan ganti nomor serta email.
+
+⚠️ Status & Batasan
+FiturStatusKeteranganTampilan & navigasi✅ SelesaiResponsif, mobile-friendlyFilter & search produk✅ SelesaiReal-time by kategori & namaSlider range harga✅ SelesaiFilter harga maksimumKeranjang belanja✅ SelesaiTambah, kurangi, hapus itemForm pengiriman✅ SelesaiValidasi semua field + format emailPilih metode pembayaran✅ Selesai3 pilihan tersediaKonfirmasi transaksi✅ SelesaiPesan sukses dengan nama pembeliPenyimpanan pesanan❌ Belum adaPesanan hilang saat refreshPayment gateway resmi❌ Belum adaMasih simulasiNotifikasi ke pemilik❌ Belum adaPerlu backend/WA APILogin pelanggan❌ Belum adaPerlu autentikasiManajemen stok❌ Belum adaPerlu admin panel + database
+Rekomendasi Langkah Selanjutnya (Go-Live)
+
+Payment Gateway → Daftar di Midtrans atau Xendit, integrasikan Snap.js
+Database pesanan → Gunakan Google Sheets + Google Apps Script (gratis) atau Firebase
+Notifikasi WhatsApp → Gunakan WA Business API atau Fonnte
+Hosting lebih profesional → Vercel atau Netlify (lebih cepat dari GitHub Pages, tetap gratis)
+
+
+📄 Kredit
+Website dibuat khusus untuk brand Strawberry Café
+Font: Playfair Display & DM Sans via Google Fonts
+Foto produk: Unsplash (keperluan akademik)
+© 2025 Strawberry Café. Soft dessert, sweet drink's. 🍓
